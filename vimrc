@@ -451,3 +451,20 @@ inoremap <Esc>D <left>
 if has("balloon_eval")
   set noballooneval
 endif
+
+" open cmd/explorer
+command! Cmd :!start cmd
+command! -nargs=? OpenDir call Win32_openDir(<f-args>)
+function! Win32_openDir(...)
+ if exists("a:1")
+  let s:cmd = ":!start explorer " . a:1
+  execute s:cmd
+ else
+  let s:cmd = ":!start explorer " . getcwd()
+  execute s:cmd
+ endif
+endfunction
+nmap <leader>dir :OpenDir<CR>
+nmap <leader>cmd :Cmd<CR>
+
+:abbr epe echo '<pre>';print_r();exit;<ESC>F(
