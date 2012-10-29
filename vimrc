@@ -67,11 +67,8 @@ set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 set laststatus=2
 
-"turn off needless toolbar on gvim/mvim
-set guioptions-=T
-"turn off the scroll bar
-set guioptions-=L
-set guioptions-=r
+set cursorline
+
 
 "recalculate the trailing whitespace warning when idle, and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
@@ -226,9 +223,19 @@ set hidden
 set ic
 set smartcase
 
+"turn off the scroll bar
+set guioptions-=L
+set guioptions-=r
+
 if has("gui_running")
     "tell the term has 256 colors
     set t_Co=256
+
+    set lines=30                " Vim window size
+    set columns=100
+
+    set guioptions-=T           " hide tool bar
+    set guioptions-=m           " hide menu bar
 
     colorscheme molokai
     set guitablabel=%M%t
@@ -237,7 +244,7 @@ if has("gui_running")
 
     if has("gui_gnome")
         set term=gnome-256color
-        colorscheme molokai
+        "colorscheme molokai
         set guifont=Monospace\ Bold\ 12
     endif
 
