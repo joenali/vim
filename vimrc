@@ -246,9 +246,7 @@ set smartcase
 
 if has("gui_running")
     "tell the term has 256 colors
-    set t_Co=256
-
-    set lines=30                " Vim window size
+    set t_Co=256 set lines=30                " Vim window size
     set columns=100
 
     set guioptions-=T           " hide tool bar
