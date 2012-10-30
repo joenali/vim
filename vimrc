@@ -1,3 +1,6 @@
+"指定英文逗号作为<leader>键
+let mapleader=","
+
 "avoiding annoying CSApprox warning message
 let g:CSApprox_verbose_level = 0
 
@@ -12,8 +15,16 @@ call pathogen#infect()
 "This must be first, because it changes other options as a side effect.
 set nocompatible
 
+
+" 文件编码设置
+set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set fileencoding=utf-8 " 新建文件使用的编码
+
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+
+set autochdir  " 自动切换当前目录为当前文件所在的目录
 
 "store lots of :cmdline history
 set history=1000
@@ -67,6 +78,7 @@ set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 set laststatus=2
 
+set dir=$CACHEDIR// " 设置交换文件(*.swp)路径
 set cursorline
 
 
@@ -177,6 +189,8 @@ function! s:Median(nums)
     endif
 endfunction
 
+setlocal noswapfile " don't generation swap file
+
 "indent settings
 set tabstop=4
 set shiftwidth=4
@@ -193,10 +207,15 @@ set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 
+set whichwrap+=<,>,[,]
+
 "display tabs and trailing spaces
 "set list
 "set listchars=tab:\ \ ,extends:>,precedes:<
+set listchars=eol:¶,tab:>-,trail:·,extends:»,precedes:« " 182, , 187, 171
 " disabling list because it interferes with soft wrap
+
+set nobackup "cance backup
 
 set formatoptions-=o "dont continue comments when pushing o/O
 
@@ -223,10 +242,6 @@ set hidden
 set ic
 set smartcase
 
-"turn off the scroll bar
-set guioptions-=L
-set guioptions-=r
-
 if has("gui_running")
     "tell the term has 256 colors
     set t_Co=256
@@ -237,7 +252,12 @@ if has("gui_running")
     set guioptions-=T           " hide tool bar
     set guioptions-=m           " hide menu bar
 
-    colorscheme molokai
+    "turn off the scroll bar
+    set guioptions-=L
+    set guioptions-=r
+
+    "colorscheme molokai
+    colorscheme solarized
     set guitablabel=%M%t
     set lines=40
     set columns=115
@@ -468,3 +488,9 @@ nmap <leader>dir :OpenDir<CR>
 nmap <leader>cmd :Cmd<CR>
 
 :abbr epe echo '<pre>';print_r();exit;<ESC>F(
+" 在命令模式或者插入模式下，使用Ctrl+t能够新建标签
+map <C-T> :tabnew<CR>
+imap <C-T> <ESC>:tabnew<CR>i
+
+nmap <Esc><Esc> :nohl<CR> "取消高亮快捷键
+nmap <silent> <C-L> :only<CR> "取消分屏
