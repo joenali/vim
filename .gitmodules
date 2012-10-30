@@ -2,10 +2,6 @@
 	path = snippets
 	url = git://github.com/asux/snipmate-snippets.git
   ignore = dirty
-[submodule "bundle/rails"]
-	path = bundle/rails
-	url = git://github.com/tpope/vim-rails.git
-  ignore = dirty
 [submodule "bundle/cucumber"]
 	path = bundle/cucumber
 	url = git://github.com/tpope/vim-cucumber.git
@@ -62,10 +58,6 @@
 	path = bundle/textile
 	url = git://github.com/timcharper/textile.vim.git
   ignore = dirty
-[submodule "bundle/vim-ruby"]
-	path = bundle/vim-ruby
-	url = git://github.com/vim-ruby/vim-ruby.git
-  ignore = dirty
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
@@ -86,10 +78,6 @@
 	path = bundle/supertab
 	url = git://github.com/ervandew/supertab.git
   ignore = dirty
-[submodule "bundle/vim-ruby-sinatra"]
-	path = bundle/vim-ruby-sinatra
-	url = git://github.com/hallison/vim-ruby-sinatra.git
-  ignore = dirty
 [submodule "bundle/securemodelines"]
 	path = bundle/securemodelines
 	url = git://github.com/ciaranm/securemodelines.git
@@ -97,9 +85,6 @@
 [submodule "bundle/vim-textobj-user"]
 	path = bundle/vim-textobj-user
 	url = git://github.com/kana/vim-textobj-user.git
-[submodule "bundle/vim-textobj-rubybloc"]
-	path = bundle/vim-textobj-rubybloc
-	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
 [submodule "bundle/vim-preview"]
 	path = bundle/vim-preview
 	url = git://github.com/greyblake/vim-preview.git
@@ -196,6 +181,3 @@
 [submodule "bundle/webapi-vim"]
 	path = bundle/webapi-vim
 	url = git://github.com/mattn/webapi-vim.git
-[submodule "bundle/vim-ruby-run"]
-	path = bundle/vim-ruby-run
-	url = https://github.com/stjernstrom/vim-ruby-run
