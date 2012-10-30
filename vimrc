@@ -4,6 +4,9 @@ let mapleader=","
 "avoiding annoying CSApprox warning message
 let g:CSApprox_verbose_level = 0
 
+" 定义交换文件(*.swp)路径
+let $CACHEDIR = $VIM . "/cache"
+
 "necessary on some Linux distros for pathogen to properly load bundles
 filetype on
 filetype off
@@ -14,7 +17,6 @@ call pathogen#infect()
 "Use Vim settings, rather then Vi settings (much better!).
 "This must be first, because it changes other options as a side effect.
 set nocompatible
-
 
 " 文件编码设置
 set encoding=utf-8
@@ -276,7 +278,21 @@ if has("gui_running")
     if has("gui_win32") || has("gui_win32s")
         set guifont=Consolas:h12
         set enc=utf-8
+
+        "实现windows下的快捷键方式
+        source $VIMRUNTIME/vimrc_example.vim
+        source $VIMRUNTIME/mswin.vim
+        behave mswin
+
+        au GUIENTER * simalt ~x "窗口自动最大化(仅windows下有效)
+
     endif
+
+    " 解决菜单乱码
+    set langmenu=zh_CN
+    let $LANG = 'zh_CN.UTF-8'
+    source $VIMRUNTIME/delmenu.vim
+    source $VIMRUNTIME/menu.vim
 else
     "dont load csapprox if there is no gui support - silences an annoying warning
     let g:CSApprox_loaded = 1
@@ -309,7 +325,7 @@ inoremap <C-L> <C-O>:nohls<CR>
 nnoremap <leader>b :BufExplorer<cr>
 
 "map to CommandT TextMate style finder
-nnoremap <leader>t :CommandT<CR>
+"nnoremap <leader>t :CommandT<CR>
 
 "map Q to something useful
 noremap Q gq
@@ -333,37 +349,6 @@ map <A-k> :cprevious<CR>
 
 "key mapping for Gundo
 nnoremap <F4> :GundoToggle<CR>
-
-"snipmate setup
-try
-  source ~/.vim/snippets/support_functions.vim
-catch
-  source ~/vimfiles/snippets/support_functions.vim
-endtry
-autocmd vimenter * call s:SetupSnippets()
-function! s:SetupSnippets()
-
-    "if we're in a rails env then read in the rails snippets
-    if filereadable("./config/environment.rb")
-      try
-        call ExtractSnips("~/.vim/snippets/ruby-rails", "ruby")
-        call ExtractSnips("~/.vim/snippets/eruby-rails", "eruby")
-      catch
-        call ExtractSnips("~/vimfiles/snippets/ruby-rails", "ruby")
-        call ExtractSnips("~/vimfiles/snippets/eruby-rails", "eruby")
-      endtry
-    endif
-
-    try
-      call ExtractSnips("~/.vim/snippets/html", "eruby")
-      call ExtractSnips("~/.vim/snippets/html", "xhtml")
-      call ExtractSnips("~/.vim/snippets/html", "php")
-    catch
-      call ExtractSnips("~/vimfiles/snippets/html", "eruby")
-      call ExtractSnips("~/vimfiles/snippets/html", "xhtml")
-      call ExtractSnips("~/vimfiles/snippets/html", "php")
-    endtry
-endfunction
 
 "visual search mappings
 function! s:VSetSearch()
@@ -491,6 +476,3 @@ nmap <leader>cmd :Cmd<CR>
 " 在命令模式或者插入模式下，使用Ctrl+t能够新建标签
 map <C-T> :tabnew<CR>
 imap <C-T> <ESC>:tabnew<CR>i
-
-nmap <Esc><Esc> :nohl<CR> "取消高亮快捷键
-nmap <silent> <C-L> :only<CR> "取消分屏
