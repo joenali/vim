@@ -127,9 +127,6 @@
 [submodule "bundle/vim-bundler"]
 	path = bundle/vim-bundler
 	url = git://github.com/tpope/vim-bundler.git
-[submodule "bundle/vim-rvm"]
-	path = bundle/vim-rvm
-	url = git://github.com/tpope/vim-rvm.git
 [submodule "bundle/actionscript"]
 	path = bundle/actionscript
 	url = git://github.com/endel/actionscript.vim.git
@@ -139,9 +136,6 @@
 [submodule "bundle/vim-autoclose"]
 	path = bundle/vim-autoclose
 	url = git://github.com/Townk/vim-autoclose.git
-[submodule "bundle/vim-golang"]
-	path = bundle/vim-golang
-	url = git://github.com/jnwhiteh/vim-golang.git
 [submodule "bundle/gist-vim"]
 	path = bundle/gist-vim
 	url = git://github.com/mattn/gist-vim.git
@@ -169,9 +163,6 @@
 [submodule "bundle/vim-buffergator"]
 	path = bundle/vim-buffergator
 	url = git://github.com/jeetsukumaran/vim-buffergator.git
-[submodule "bundle/vim-vroom"]
-	path = bundle/vim-vroom
-	url = git://github.com/skalnik/vim-vroom.git
 [submodule "bundle/vim-slim"]
 	path = bundle/vim-slim
 	url = git://github.com/bbommarito/vim-slim.git
