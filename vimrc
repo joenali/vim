@@ -57,9 +57,6 @@ nmap <D-0> g^
 "add some line space for easy reading
 set linespace=4
 
-"disable visual bell
-set visualbell t_vb=
-
 "try to make possible to navigate within lines of wrapped lines
 nmap <Down> gj
 nmap <Up> gk
