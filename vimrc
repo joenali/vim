@@ -1,6 +1,9 @@
 "指定英文逗号作为<leader>键
 let mapleader=","
 
+" 定义交换文件(*.swp)路径
+let $CACHEDIR = $HOME . "/cache"
+
 "avoiding annoying CSApprox warning message
 let g:CSApprox_verbose_level = 0
 
@@ -214,8 +217,6 @@ set whichwrap+=<,>,[,]
 set listchars=eol:¶,tab:>-,trail:·,extends:»,precedes:« " 182, , 187, 171
 " disabling list because it interferes with soft wrap
 
-set nobackup "cance backup
-
 set formatoptions-=o "dont continue comments when pushing o/O
 
 "vertical/horizontal scroll off settings
@@ -307,6 +308,7 @@ else
         endif
     endif
 endif
+set nobackup "cancel backup file
 
 " PeepOpen uses <Leader>p as well so you will need to redefine it so something
 " else in your ~/.vimrc file, such as:
@@ -356,7 +358,6 @@ function! s:VSetSearch()
 endfunction
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
-
 
 "jump to last cursor position when opening a file
 "dont do it when writing a commit log entry
