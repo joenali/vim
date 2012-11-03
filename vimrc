@@ -275,7 +275,8 @@ if has("gui_running")
     endif
 
     if has("gui_win32") || has("gui_win32s")
-        set guifont=Consolas:h12
+        "set guifont=Consolas:h12
+        set guifont=Courier_New:h14:cANSI
         set enc=utf-8
 
         "实现windows下的快捷键方式
