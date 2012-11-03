@@ -254,8 +254,8 @@ if has("gui_running")
     set guioptions-=L
     set guioptions-=r
 
-    "colorscheme molokai
-    colorscheme solarized
+    colorscheme molokai
+    "colorscheme solarized
     set guitablabel=%M%t
     set lines=40
     set columns=115
@@ -469,7 +469,6 @@ endfunction
 nmap <leader>dir :OpenDir<CR>
 nmap <leader>cmd :Cmd<CR>
 
-:abbr epe echo '<pre>';print_r();exit;<ESC>F(
 " 在命令模式或者插入模式下，使用Ctrl+t能够新建标签
 map <C-T> :tabnew<CR>
 imap <C-T> <ESC>:tabnew<CR>i
