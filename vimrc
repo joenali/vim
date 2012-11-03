@@ -1,14 +1,11 @@
 "指定英文逗号作为<leader>键
 let mapleader=","
 
-" 定义交换文件(*.swp)路径
-let $CACHEDIR = $HOME . "/cache"
-
 "avoiding annoying CSApprox warning message
 let g:CSApprox_verbose_level = 0
 
 " 定义交换文件(*.swp)路径
-let $CACHEDIR = $VIM . "/cache"
+let $CACHEDIR = $HOME . "/cache"
 
 "necessary on some Linux distros for pathogen to properly load bundles
 filetype on
