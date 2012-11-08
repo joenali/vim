@@ -288,6 +288,18 @@ if has("gui_running")
     let $LANG = 'zh_CN.UTF-8'
     source $VIMRUNTIME/delmenu.vim
     source $VIMRUNTIME/menu.vim
+
+    " Toggle Menu and Toolbar
+    set guioptions-=m
+    set guioptions-=T
+    map <silent> <F2> :if &guioptions =~# 'T' <Bar>
+            \set guioptions-=T <Bar>
+            \set guioptions-=m <bar>
+        \else <Bar>
+            \set guioptions+=T <Bar>
+            \set guioptions+=m <Bar>
+        \endif<CR>
+
 else
     "dont load csapprox if there is no gui support - silences an annoying warning
     let g:CSApprox_loaded = 1
@@ -452,6 +464,32 @@ if has("balloon_eval")
   set noballooneval
 endif
 
+
+" ------------------------taglist设置Begin---------------------------
+nmap <F9> <Esc>:!ctags -R *<CR>
+map <F8> :silent! Tlist<CR> "按下F8就可以呼出了
+let Tlist_Ctags_Cmd='ctags' "因为我们放在环境变量里，所以可以直接执行
+let Tlist_Use_Right_Window=1 "让窗口显示在右边，0的话就是显示在左边
+let Tlist_Show_One_File=0 "让taglist可以同时展示多个文件的函数列表
+let Tlist_File_Fold_Auto_Close=1 "非当前文件，函数列表折叠隐藏
+let Tlist_Exit_OnlyWindow=1 "当taglist是最后一个分割窗口时，自动推出vim
+"是否一直处理tags.1:处理;0:不处理
+let Tlist_Process_File_Always=0 "不是一直实时更新tags，因为没有必要
+let Tlist_Inc_Winwidth=0
+" ------------------------taglist设置End---------------------------
+
+
+" ------------------------doxygenToolkit设置Begin---------------------------
+let g:DoxygenToolkit_authorName="joe, joenali@163.com"
+let s:licenseTag = "Copyright(C)\<enter>"
+let s:licenseTag = s:licenseTag . "For free\<enter>"
+let s:licenseTag = s:licenseTag . "All right reserved\<enter>"
+let g:DoxygenToolkit_licenseTag = s:licenseTag
+let g:DoxygenToolkit_briefTag_funcName="yes"
+let g:doxygen_enhanced_color=1
+" ------------------------doxygenToolkit设置End---------------------------
+
+
 " open cmd/explorer
 command! Cmd :!start cmd
 command! -nargs=? OpenDir call Win32_openDir(<f-args>)
@@ -470,3 +508,6 @@ nmap <leader>cmd :Cmd<CR>
 " 在命令模式或者插入模式下，使用Ctrl+t能够新建标签
 map <C-T> :tabnew<CR>
 imap <C-T> <ESC>:tabnew<CR>i
+
+nmap <Esc><Esc> :nohl<CR> "取消高亮快捷键
+nmap <silent> <C-L> :only<CR> "取消分屏
