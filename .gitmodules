@@ -140,6 +140,3 @@
 [submodule "bundle/vim-slim"]
 	path = bundle/vim-slim
 	url = git://github.com/bbommarito/vim-slim.git
-[submodule "bundle/webapi-vim"]
-	path = bundle/webapi-vim
-	url = git://github.com/mattn/webapi-vim.git
