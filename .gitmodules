@@ -46,10 +46,6 @@
 	path = bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
   ignore = dirty
-[submodule "bundle/textile"]
-	path = bundle/textile
-	url = git://github.com/timcharper/textile.vim.git
-  ignore = dirty
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
