@@ -89,9 +89,6 @@
 [submodule "bundle/vim-colors-solarized"]
 	path = bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "bundle/jade"]
-	path = bundle/jade
-	url = git://github.com/digitaltoad/vim-jade.git
 [submodule "bundle/vim-jquery"]
 	path = bundle/vim-jquery
 	url = git://github.com/itspriddle/vim-jquery.git
