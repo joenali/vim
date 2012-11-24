@@ -355,9 +355,6 @@ map <A-q> :cclose<CR>
 map <A-j> :cnext<CR>
 map <A-k> :cprevious<CR>
 
-"key mapping for Gundo
-nnoremap <F4> :GundoToggle<CR>
-
 "visual search mappings
 function! s:VSetSearch()
     let temp = @@
@@ -412,9 +409,6 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-"key mapping for saving file
-nmap <C-s> :w<CR>
-
 "key mapping for tab navigation
 nmap <S-Tab> gt
 nmap <C-S-Tab> gT
@@ -459,10 +453,6 @@ inoremap <Esc>A <up>
 inoremap <Esc>B <down>
 inoremap <Esc>C <right>
 inoremap <Esc>D <left>
-
-if has("balloon_eval")
-  set noballooneval
-endif
 
 
 " ------------------------taglist设置Begin---------------------------
