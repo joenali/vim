@@ -500,5 +500,5 @@ map <C-T> :tabnew<CR>
 imap <C-T> <ESC>:tabnew<CR>i
 
 set tags=tags
-nmap <Esc><Esc> :nohl<CR> "取消高亮快捷键
-nmap <silent> <C-L> :only<CR> "取消分屏
+"nmap <Esc><Esc> :nohl<CR> "取消高亮快捷键
+"nmap <silent> <C-L> :only<CR> "取消分屏
