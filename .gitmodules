@@ -100,9 +100,6 @@
 [submodule "bundle/actionscript"]
 	path = bundle/actionscript
 	url = git://github.com/endel/actionscript.vim.git
-[submodule "bundle/vim-autoclose"]
-	path = bundle/vim-autoclose
-	url = git://github.com/Townk/vim-autoclose.git
 [submodule "bundle/gist-vim"]
 	path = bundle/gist-vim
 	url = git://github.com/mattn/gist-vim.git
