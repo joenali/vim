@@ -42,10 +42,6 @@
 	path = bundle/snipmate
 	url = git://github.com/akitaonrails/snipmate.vim.git
   ignore = dirty
-[submodule "bundle/syntastic"]
-	path = bundle/syntastic
-	url = git://github.com/scrooloose/syntastic.git
-  ignore = dirty
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
