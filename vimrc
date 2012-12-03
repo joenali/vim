@@ -325,9 +325,9 @@ set nobackup "cancel backup file
 
 silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
 
-"make <c-l> clear the highlight as well as redraw
-nnoremap <C-L> :nohls<CR><C-L>
-inoremap <C-L> <C-O>:nohls<CR>
+"make double <ESC> clear the highlight as well as redraw
+nmap <ESC><ESC> :nohl<CR>
+imap <ESC><ESC> <ESC>:nohl<CR>
 
 "map to bufexplorer
 nnoremap <leader>b :BufExplorer<cr>
@@ -442,7 +442,8 @@ let g:user_zen_settings = {
 imap {<CR> {}<ESC>i<CR><ESC>O
 
 " NERDTree settings
-nmap wm :NERDTree<cr>
+nmap wm :NERDTreeToggle<CR>
+imap wm <ESC>:NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.swp$']
 
 nnoremap <Esc>A <up>
