@@ -467,6 +467,7 @@ let Tlist_Exit_OnlyWindow=1 "当taglist是最后一个分割窗口时，自动�
 "是否一直处理tags.1:处理;0:不处理
 let Tlist_Process_File_Always=0 "不是一直实时更新tags，因为没有必要
 let Tlist_Inc_Winwidth=0
+set tags=tags;
 " ------------------------taglist设置End---------------------------
 
 
@@ -500,6 +501,5 @@ nmap <leader>cmd :Cmd<CR>
 map <C-T> :tabnew<CR>
 imap <C-T> <ESC>:tabnew<CR>i
 
-set tags=tags
 "nmap <Esc><Esc> :nohl<CR> "取消高亮快捷键
 "nmap <silent> <C-L> :only<CR> "取消分屏

@@ -126,3 +126,6 @@
 [submodule "bundle/vim-slim"]
 	path = bundle/vim-slim
 	url = git://github.com/bbommarito/vim-slim.git
+[submodule "bundle/doxygentoolkit"]
+	path = bundle/doxygentoolkit
+	url = git://github.com/vim-scripts/DoxygenToolkit.vim.git
