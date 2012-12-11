@@ -501,6 +501,9 @@ nmap <leader>cmd :Cmd<CR>
 map <C-T> :tabnew<CR>
 imap <C-T> <ESC>:tabnew<CR>i
 
+map <C-K> :tabnew %<CR>
+imap <C-K> <ESC>:tabnew %<CR>i
+
 "nmap <Esc><Esc> :nohl<CR> "取消高亮快捷键
 nmap <silent> <C-O> :only<CR> "取消分屏
 nmap <silent> <C-O> :only<CR> "取消分屏
