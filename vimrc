@@ -79,7 +79,8 @@ set laststatus=2
 
 set dir=$CACHEDIR// " 设置交换文件(*.swp)路径
 set cursorline
-
+"hi cursorLine   cterm=NONE ctermbg=blue ctermfg=white guibg=white guifg=white
+"hi cursorline guibg=Grey40 guifg=red term=BOLD
 
 "recalculate the trailing whitespace warning when idle, and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
@@ -324,6 +325,7 @@ set nobackup "cancel backup file
 " nmap <silent> <Leader>q <Plug>PeepOpen
 
 silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
+let NERDTreeIgnore=['\.swp$']
 
 "make double <ESC> clear the highlight as well as redraw
 nmap <ESC><ESC> :nohl<CR>
@@ -441,11 +443,6 @@ let g:user_zen_settings = {
 " when press { + Enter, the {} block will expand.
 imap {<CR> {}<ESC>i<CR><ESC>O
 
-" NERDTree settings
-nmap wm :NERDTreeToggle<CR>
-imap wm <ESC>:NERDTreeToggle<CR>
-let NERDTreeIgnore=['\.swp$']
-
 nnoremap <Esc>A <up>
 nnoremap <Esc>B <down>
 nnoremap <Esc>C <right>
@@ -508,3 +505,4 @@ imap <C-K> <ESC>:tabnew %<CR>i
 nmap <silent> <C-O> :only<CR> "取消分屏
 nmap <silent> <C-O> :only<CR> "取消分屏
 map <C-H> ,c<space>
+:abbr epe echo '<pre>';print_r();exit;<ESC>F(
