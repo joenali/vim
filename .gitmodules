@@ -41,3 +41,9 @@
 [submodule "bundle/doxygentoolkit"]
 	path = bundle/doxygentoolkit
 	url = git://github.com/vim-scripts/DoxygenToolkit.vim.git
+[submodule "bundle/lookupfile"]
+	path = bundle/lookupfile
+	url = git://github.com/vim-scripts/lookupfile.git
+[submodule "bundle/genutils"]
+	path = bundle/genutils
+	url = git://github.com/vim-scripts/genutils.git
