@@ -10,14 +10,6 @@
 	path = bundle/markdown
 	url = git://github.com/tpope/vim-markdown.git
   ignore = dirty
-[submodule "bundle/git"]
-	path = bundle/git
-	url = git://github.com/tpope/vim-git.git
-  ignore = dirty
-[submodule "bundle/scss-syntax"]
-	path = bundle/scss-syntax
-	url = http://github.com/cakebaker/scss-syntax.vim.git
-  ignore = dirty
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = git://github.com/ervandew/supertab.git
@@ -40,9 +32,6 @@
 [submodule "bundle/gist-vim"]
 	path = bundle/gist-vim
 	url = git://github.com/mattn/gist-vim.git
-[submodule "bundle/git-vim"]
-	path = bundle/git-vim
-	url = git://github.com/motemen/git-vim.git
 [submodule "bundle/grep-vim"]
 	path = bundle/grep-vim
 	url = git://github.com/vim-scripts/grep.vim.git
