@@ -527,20 +527,22 @@ nmap <leader>o :LookupFile<CR>
 let g:LookupFile_TagExpr = '"./.filenametags"'
 " ------------------------lookupfile设置end---------------------------
 
-" open cmd/explorer
-command! Cmd :!start cmd
-command! -nargs=? OpenDir call Win32_openDir(<f-args>)
-function! Win32_openDir(...)
- if exists("a:1")
-  let s:cmd = ":!start explorer " . a:1
-  execute s:cmd
- else
-  let s:cmd = ":!start explorer " . getcwd()
-  execute s:cmd
- endif
-endfunction
-nmap <leader>dir :OpenDir<CR>
-nmap <leader>cmd :Cmd<CR>
+if has("gui_win32")
+    " open cmd/explorer
+    command! Cmd :!start cmd
+    command! -nargs=? OpenDir call Win32_openDir(<f-args>)
+    function! Win32_openDir(...)
+        if exists("a:1")
+            let s:cmd = ":!start explorer " . a:1
+            execute s:cmd
+        else
+            let s:cmd = ":!start explorer " . getcwd()
+            execute s:cmd
+        endif
+    endfunction
+    nmap <leader>dir :OpenDir<CR>
+    nmap <leader>cmd :Cmd<CR>
+endif
 
 " 在命令模式或者插入模式下，使用Ctrl+t能够新建标签
 map <C-T> :tabnew<CR>
