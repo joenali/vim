@@ -308,6 +308,7 @@ else
             colorscheme default
         endif
     endif
+    hi CursorLine cterm=NONE ctermbg=0
 endif
 set nobackup "cancel backup file
 
@@ -424,7 +425,6 @@ inoremap <Esc>B <down>
 inoremap <Esc>C <right>
 inoremap <Esc>D <left>
 
-
 " ------------------------taglist设置Begin---------------------------
 nmap <F9> <Esc>:!ctags -R *<CR>
 map <F8> :silent! Tlist<CR> "按下F8就可以呼出了
@@ -536,4 +536,3 @@ nmap <silent> <C-O> :only<CR> "取消分屏
 nmap <silent> <C-O> :only<CR> "取消分屏
 map <C-H> ,c<space>
 :abbr epe echo '<pre>';print_r();exit;<ESC>F(
-hi CursorLine cterm=NONE ctermbg=0
