@@ -536,3 +536,4 @@ nmap <silent> <C-O> :only<CR> "取消分屏
 nmap <silent> <C-O> :only<CR> "取消分屏
 map <C-H> ,c<space>
 :abbr epe echo '<pre>';print_r();exit;<ESC>F(
+":abbr epe echo '<pre>';print_r();exit;<ESC>F(
