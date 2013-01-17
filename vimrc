@@ -4,8 +4,11 @@ let mapleader=","
 "avoiding annoying CSApprox warning message
 let g:CSApprox_verbose_level = 0
 
-" 定义交换文件(*.swp)路径
-let $CACHEDIR = $HOME . "/cache"
+" 定义交换文件(*.swp)的存放路径
+let $CACHEDIR = $HOME . "/.vcache"
+if !isdirectory($CACHEDIR) && exists("*mkdir")
+    call mkdir($CACHEDIR)
+endif
 
 "necessary on some Linux distros for pathogen to properly load bundles
 filetype on
@@ -316,7 +319,7 @@ set nobackup "cancel backup file
 " else in your ~/.vimrc file, such as:
 " nmap <silent> <Leader>q <Plug>PeepOpen
 
-silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
+silent! nmap <silent> wm :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.swp$']
 
 "make double <ESC> clear the highlight as well as redraw
@@ -334,11 +337,6 @@ noremap Q gq
 
 "make Y consistent with C and D
 nnoremap Y y$
-
-"bindings for ragtag
-inoremap <M-o>       <Esc>o
-inoremap <C-j>       <Down>
-let g:ragtag_global_maps = 1
 
 "mark syntax errors with :signs
 let g:syntastic_enable_signs=1
@@ -397,21 +395,9 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
-"key mapping for window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
 "key mapping for tab navigation
 nmap <S-Tab> gt
 nmap <C-S-Tab> gT
-
-"Key mapping for textmate-like indentation
-nmap <D-[> <<
-nmap <D-]> >>
-vmap <D-[> <gv
-vmap <D-]> >gv
 
 " when press { + Enter, the {} block will expand.
 imap {<CR> {}<ESC>i<CR><ESC>O
@@ -532,8 +518,8 @@ map <C-K> :tabnew %<CR>
 imap <C-K> <ESC>:tabnew %<CR>i
 
 "nmap <Esc><Esc> :nohl<CR> "取消高亮快捷键
-nmap <silent> <C-O> :only<CR> "取消分屏
-nmap <silent> <C-O> :only<CR> "取消分屏
+nmap <silent> on :only<CR> "取消分屏
+nmap <silent> on :only<CR> "取消分屏
 map <C-H> ,c<space>
 :abbr epe echo '<pre>';print_r();exit;<ESC>F(
 ":abbr epe echo '<pre>';print_r();exit;<ESC>F(
