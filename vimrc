@@ -473,7 +473,7 @@ function! SetRootOfTheProject(path)
     " 生成文件标签
     exe '!tags'
     " 获取标签文件的路径
-    let tagFilePath = genutils#CleanupFileName(a:path.'/.filenametags')
+    let tagFilePath = genutils#CleanupFileName(a:path.'/filenametags')
     " 设置LookupFile插件的全局变量，使之以上面生成的标签文件作为查找源
     exe "let g:LookupFile_TagExpr='\"".tagFilePath."\"'"
 endfunction
@@ -490,7 +490,7 @@ nmap <leader>xroot :call SetSpecifiedPathTheRoot()<CR>
 
 " 使用LookupFile打开文件
 nmap <leader>o :LookupFile<CR>
-let g:LookupFile_TagExpr = '"./.filenametags"'
+let g:LookupFile_TagExpr = '"./filenametags"'
 " ------------------------lookupfile设置end---------------------------
 
 if has("gui_win32")
@@ -509,6 +509,12 @@ if has("gui_win32")
     nmap <leader>dir :OpenDir<CR>
     nmap <leader>cmd :Cmd<CR>
 endif
+
+"fuzzyfinder
+map <leader>F :FufFile<CR>
+map <leader>f :FufTaggedFile<CR>
+map <leader>g :FufTag<CR>
+map <leader>b :FufBuffer<CR>
 
 " 在命令模式或者插入模式下，使用Ctrl+t能够新建标签
 map <C-T> :tabnew<CR>
