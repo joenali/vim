@@ -44,26 +44,8 @@ set number      "add line numbers
 set showbreak=...
 set wrap linebreak nolist
 
-"mapping for command key to map navigation thru display lines instead
-"of just numbered lines
-vmap <D-j> gj
-vmap <D-k> gk
-vmap <D-4> g$
-vmap <D-6> g^
-vmap <D-0> g^
-nmap <D-j> gj
-nmap <D-k> gk
-nmap <D-4> g$
-nmap <D-6> g^
-nmap <D-0> g^
-
 "add some line space for easy reading
 set linespace=4
-
-"try to make possible to navigate within lines of wrapped lines
-nmap <Down> gj
-nmap <Up> gk
-set fo=l
 
 "statusline setup
 set statusline=%f       "tail of the filename
@@ -233,6 +215,7 @@ set hidden
 "Activate smartcase
 set ic
 set smartcase
+set iskeyword+=_,$,@,%,#,-
 
 set cursorline
 if has("gui_running")
@@ -329,15 +312,6 @@ imap <ESC><ESC> <ESC>:nohl<CR>
 "map to bufexplorer
 nnoremap <leader>b :BufExplorer<cr>
 
-"map to CommandT TextMate style finder
-"nnoremap <leader>t :CommandT<CR>
-
-"map Q to something useful
-noremap Q gq
-
-"make Y consistent with C and D
-nnoremap Y y$
-
 "mark syntax errors with :signs
 let g:syntastic_enable_signs=1
 
@@ -424,7 +398,6 @@ let Tlist_Process_File_Always=0 "不是一直实时更新tags，因为没有必�
 let Tlist_Inc_Winwidth=0
 set tags=tags;
 " ------------------------taglist设置End---------------------------
-
 
 " ------------------------doxygenToolkit设置Begin---------------------------
 let g:DoxygenToolkit_authorName="joe, joenali@163.com"
@@ -528,4 +501,3 @@ nmap <silent> on :only<CR> "取消分屏
 nmap <silent> on :only<CR> "取消分屏
 map <C-H> ,c<space>
 :abbr epe echo '<pre>';print_r();exit;<ESC>F(
-":abbr epe echo '<pre>';print_r();exit;<ESC>F(
