@@ -47,3 +47,9 @@
 [submodule "bundle/genutils"]
 	path = bundle/genutils
 	url = git://github.com/vim-scripts/genutils.git
+[submodule "bundle/FuzzyFinder"]
+	path = bundle/FuzzyFinder
+	url = git://github.com/vim-scripts/FuzzyFinder.git
+[submodule "bundle/L9"]
+	path = bundle/L9
+	url = git://github.com/vim-scripts/L9.git
