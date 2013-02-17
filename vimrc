@@ -189,7 +189,6 @@ set whichwrap+=<,>,[,]
 "display tabs and trailing spaces
 "set listchars=tab:\ \ ,extends:>,precedes:<
 set listchars=eol:¶,tab:>-,trail:·,extends:»,precedes:« " 182, , 187, 171
-" disabling list because it interferes with soft wrap
 
 set formatoptions-=o "dont continue comments when pushing o/O
 
