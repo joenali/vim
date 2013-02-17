@@ -44,26 +44,8 @@ set number      "add line numbers
 set showbreak=...
 set wrap linebreak nolist
 
-"mapping for command key to map navigation thru display lines instead
-"of just numbered lines
-vmap <D-j> gj
-vmap <D-k> gk
-vmap <D-4> g$
-vmap <D-6> g^
-vmap <D-0> g^
-nmap <D-j> gj
-nmap <D-k> gk
-nmap <D-4> g$
-nmap <D-6> g^
-nmap <D-0> g^
-
 "add some line space for easy reading
 set linespace=4
-
-"try to make possible to navigate within lines of wrapped lines
-nmap <Down> gj
-nmap <Up> gk
-set fo=l
 
 "statusline setup
 set statusline=%f       "tail of the filename
@@ -204,7 +186,6 @@ set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set whichwrap+=<,>,[,]
 
 "display tabs and trailing spaces
-"set list
 "set listchars=tab:\ \ ,extends:>,precedes:<
 set listchars=eol:¶,tab:>-,trail:·,extends:»,precedes:« " 182, , 187, 171
 " disabling list because it interferes with soft wrap
@@ -315,10 +296,6 @@ else
 endif
 set nobackup "cancel backup file
 
-" PeepOpen uses <Leader>p as well so you will need to redefine it so something
-" else in your ~/.vimrc file, such as:
-" nmap <silent> <Leader>q <Plug>PeepOpen
-
 silent! nmap <silent> wm :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.swp$']
 
@@ -328,18 +305,6 @@ imap <ESC><ESC> <ESC>:nohl<CR>
 
 "map to bufexplorer
 nnoremap <leader>b :BufExplorer<cr>
-
-"map to CommandT TextMate style finder
-"nnoremap <leader>t :CommandT<CR>
-
-"map Q to something useful
-noremap Q gq
-
-"make Y consistent with C and D
-nnoremap Y y$
-
-"mark syntax errors with :signs
-let g:syntastic_enable_signs=1
 
 "key mapping for vimgrep result navigation
 map <A-o> :copen<CR>
@@ -401,15 +366,6 @@ nmap <C-S-Tab> gT
 
 " when press { + Enter, the {} block will expand.
 imap {<CR> {}<ESC>i<CR><ESC>O
-
-nnoremap <Esc>A <up>
-nnoremap <Esc>B <down>
-nnoremap <Esc>C <right>
-nnoremap <Esc>D <left>
-inoremap <Esc>A <up>
-inoremap <Esc>B <down>
-inoremap <Esc>C <right>
-inoremap <Esc>D <left>
 
 " ------------------------taglist设置Begin---------------------------
 nmap <F9> <Esc>:!ctags -R *<CR>
@@ -517,9 +473,6 @@ imap <C-T> <ESC>:tabnew<CR>i
 map <C-K> :tabnew %<CR>
 imap <C-K> <ESC>:tabnew %<CR>i
 
-"nmap <Esc><Esc> :nohl<CR> "取消高亮快捷键
-nmap <silent> on :only<CR> "取消分屏
 nmap <silent> on :only<CR> "取消分屏
 map <C-H> ,c<space>
 :abbr epe echo '<pre>';print_r();exit;<ESC>F(
-":abbr epe echo '<pre>';print_r();exit;<ESC>F(
