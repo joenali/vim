@@ -397,63 +397,6 @@ let g:DoxygenToolkit_briefTag_funcName="yes"
 let g:doxygen_enhanced_color=1
 " ------------------------doxygenToolkit设置End---------------------------
 
-" ------------------------lookupfile设置Begin---------------------------
-let g:LookupFile_MinPatLength = 2 "最少输入2个字符才开始查找
-let g:LookupFile_PreserveLastPattern = 0 "不保存上次查找的字符串
-let g:LookupFile_PreservePatternHistory = 1 "保存查找历史
-let g:LookupFile_AlwaysAcceptFirst = 1 "回车打开第一个匹配项目
-let g:LookupFile_AllowNewFiles = 0 "不允许创建不存在的文件
-let g:LookupFile_UsingSpecializedTags = 1
-let g:LookupFile_Bufs_LikeBufCmd = 0
-let g:LookupFile_ignorecase = 1
-let g:LookupFile_smartcase = 1
-
-" lookup file with ignore case
-function! LookupFile_IgnoreCaseFunc(pattern)
-    let _tags = &tags
-    try
-        let &tags = eval(g:LookupFile_TagExpr)
-        let newpattern = '\c' . a:pattern
-        let tags = taglist(newpattern)
-    catch
-        echohl ErrorMsg | echo "Exception: " . v:exception | echohl NONE
-        return ""
-    finally
-        let &tags = _tags
-    endtry
-    " Show the matches for what is typed so far.
-    let files = map(tags, 'v:val["filename"]')
-    return files
-endfunction
-let g:LookupFile_LookupFunc = 'LookupFile_IgnoreCaseFunc'
-
-" 在指定目录生成filenametags，并使lookupfile将这个文件作为查找源
-function! SetRootOfTheProject(path)
-    " 进入指定目录
-    exe 'cd '.a:path
-    " 生成文件标签
-    exe '!tags'
-    " 获取标签文件的路径
-    let tagFilePath = genutils#CleanupFileName(a:path.'/filenametags')
-    " 设置LookupFile插件的全局变量，使之以上面生成的标签文件作为查找源
-    exe "let g:LookupFile_TagExpr='\"".tagFilePath."\"'"
-endfunction
-" 设置当前位置为工程的根目录
-function! SetHereTheRoot()
-    call SetRootOfTheProject('c:\wamp\www')
-endfunction
-nmap <leader>root :call SetHereTheRoot()<CR>
-" 从用户的输入获取指定路径，并设置为工程的根目录
-function! SetSpecifiedPathTheRoot()
-    call SetRootOfTheProject(input('Enter a Path：'))
-endfunction
-nmap <leader>xroot :call SetSpecifiedPathTheRoot()<CR>
-
-" 使用LookupFile打开文件
-nmap <leader>o :LookupFile<CR>
-let g:LookupFile_TagExpr = '"./filenametags"'
-" ------------------------lookupfile设置end---------------------------
-
 if has("gui_win32")
     " open cmd/explorer
     command! Cmd :!start cmd
