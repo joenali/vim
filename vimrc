@@ -302,15 +302,6 @@ else
     hi CursorLine cterm=NONE ctermbg=0
 endif
 
-" 标签页只显示文件名,隐藏路径
-function! ShortTabLabel ()
-    let bufnrlist = tabpagebuflist (v:lnum)
-    let label = bufname (bufnrlist[tabpagewinnr (v:lnum) -1])
-    let filename = fnamemodify (label, ':t')
-    return filename
-endfunction
-set guitablabel=%{ShortTabLabel()}
-
 silent! nmap <silent> wm :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.swp$']
 
@@ -375,6 +366,14 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
+" 标签页只显示文件名,隐藏路径
+function! ShortTabLabel ()
+    let bufnrlist = tabpagebuflist (v:lnum)
+    let label = bufname (bufnrlist[tabpagewinnr (v:lnum) -1])
+    let filename = fnamemodify (label, ':t')
+    return filename
+endfunction
+set guitablabel=%{ShortTabLabel()}
 
 "key mapping for tab navigation
 nmap <S-Tab> gt
