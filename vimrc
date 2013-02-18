@@ -238,14 +238,15 @@ if has("gui_running")
     set guioptions-=L
     set guioptions-=r
 
-    colorscheme molokai
-    set guitablabel=%M%t
+    "colorscheme molokai
+    set background=dark
+    colorscheme solarized
     set lines=40
     set columns=115
 
     if has("gui_gnome")
         set term=gnome-256color
-        set guifont=Monospace\ Bold\ 12
+        set guifont=Monospace\ Bold\ 14
     endif
 
     if has("gui_mac") || has("gui_macvim")
@@ -300,6 +301,15 @@ else
     endif
     hi CursorLine cterm=NONE ctermbg=0
 endif
+
+" 标签页只显示文件名,隐藏路径
+function! ShortTabLabel ()
+    let bufnrlist = tabpagebuflist (v:lnum)
+    let label = bufname (bufnrlist[tabpagewinnr (v:lnum) -1])
+    let filename = fnamemodify (label, ':t')
+    return filename
+endfunction
+set guitablabel=%{ShortTabLabel()}
 
 silent! nmap <silent> wm :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.swp$']
@@ -413,12 +423,6 @@ if has("gui_win32")
     nmap <leader>dir :OpenDir<CR>
     nmap <leader>cmd :Cmd<CR>
 endif
-
-"fuzzyfinder
-map <leader>F :FufFile<CR>
-map <leader>f :FufTaggedFile<CR>
-map <leader>g :FufTag<CR>
-map <leader>b :FufBuffer<CR>
 
 " 在命令模式或者插入模式下，使用Ctrl+t能够新建标签
 map <C-T> :tabnew<CR>
