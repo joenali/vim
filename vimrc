@@ -440,6 +440,10 @@ map <C-H> ,c<space>
 
 noremap <C-W><C-U> :CtrlPMRU<CR>
 nnoremap <C-W>u :CtrlPMRU<CR>
+"Normal CtrlP
+"nnoremap <silent> <Leader>t :CtrlP<cr>
+"Flush then CtrlP
+"nnoremap <silent> <leader>T :ClearCtrlPCache<cr>\|:CtrlP<cr>
 
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
 let g:ctrlp_working_path_mode = 'ra'
