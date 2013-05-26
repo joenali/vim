@@ -409,7 +409,7 @@ let g:doxygen_enhanced_color=1
 
 " ------------------------ctrlP设置Begin---------------------------
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
-let g:ctrlp_working_path_mode = 'rw'
+let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_match_window_bottom=1
 let g:ctrlp_max_height=15
 let g:ctrlp_match_window_reversed=0
@@ -452,7 +452,7 @@ map <C-H> ,c<space>
 
 noremap <C-W><C-U> :CtrlPMRU<CR>
 nnoremap <C-W>u :CtrlPMRU<CR>
-"Normal CtrlP
-"nnoremap <silent> <Leader>t :CtrlP<cr>
+nnoremap <silent> <Leader>f :tabnew<CR>:CtrlP<CR>
+nnoremap <silent> <Leader>F :CtrlP<CR>
 "Flush then CtrlP
-"nnoremap <silent> <leader>T :ClearCtrlPCache<cr>\|:CtrlP<cr>
+nnoremap <silent> <leader>T :ClearCtrlPCache<cr>\|:CtrlP<cr>
