@@ -406,6 +406,18 @@ let g:DoxygenToolkit_briefTag_funcName="yes"
 let g:doxygen_enhanced_color=1
 " ------------------------doxygenToolkit设置End---------------------------
 
+
+" ------------------------ctrlP设置Begin---------------------------
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
+let g:ctrlp_working_path_mode = 'rw'
+let g:ctrlp_match_window_bottom=1
+let g:ctrlp_max_height=15
+let g:ctrlp_match_window_reversed=0
+let g:ctrlp_mruf_max=500
+let g:ctrlp_follow_symlinks=1
+let g:ctrlp_root_markers = ['.ctrlp']
+" ------------------------ctrlP设置End---------------------------
+
 if has("gui_win32")
     " open cmd/explorer
     command! Cmd :!start cmd
@@ -444,12 +456,3 @@ nnoremap <C-W>u :CtrlPMRU<CR>
 "nnoremap <silent> <Leader>t :CtrlP<cr>
 "Flush then CtrlP
 "nnoremap <silent> <leader>T :ClearCtrlPCache<cr>\|:CtrlP<cr>
-
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_match_window_bottom=1
-let g:ctrlp_max_height=15
-let g:ctrlp_match_window_reversed=0
-let g:ctrlp_mruf_max=500
-let g:ctrlp_follow_symlinks=1
-let g:ctrlp_root_markers = ['.ctrlp']
