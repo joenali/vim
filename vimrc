@@ -222,7 +222,6 @@ set novisualbell
 set t_vb=
 set tm=500
 
-set nobackup "cancel backup file
 set cursorline
 
 if has("gui_running")
@@ -302,6 +301,7 @@ else
     hi CursorLine cterm=NONE ctermbg=0
 endif
 
+set nobackup "cancel backup file
 silent! nmap <silent> wm :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.swp$']
 
@@ -448,6 +448,7 @@ nmap <leader>q :q!<CR> "fast saving
 nmap <silent> on :only<CR> "取消分屏
 map <C-H> ,c<space>
 :abbr epe echo '<pre>';print_r();exit;<ESC>F(
+nnoremap <silent> <Leader>t :tabnew<CR>
 
 
 noremap <C-W><C-U> :CtrlPMRU<CR>
