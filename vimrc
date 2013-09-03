@@ -222,7 +222,6 @@ set novisualbell
 set t_vb=
 set tm=500
 
-set nobackup "cancel backup file
 set cursorline
 
 if has("gui_running")
@@ -238,8 +237,7 @@ if has("gui_running")
     set guioptions-=L
     set guioptions-=r
 
-    "colorscheme molokai
-    set background=dark
+    "set background=dark
     colorscheme solarized
     set lines=40
     set columns=115
@@ -263,6 +261,8 @@ if has("gui_running")
         source $VIMRUNTIME/vimrc_example.vim
         source $VIMRUNTIME/mswin.vim
         behave mswin
+
+        let g:snippets_dir='$VIM/vimfiles/snippets'
 
         au GUIENTER * simalt ~x "窗口自动最大化(仅windows下有效)
     endif
@@ -301,7 +301,7 @@ else
     endif
     hi CursorLine cterm=NONE ctermbg=0
 endif
-
+set nobackup "cancel backup file
 silent! nmap <silent> wm :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.swp$']
 
@@ -374,10 +374,6 @@ function! ShortTabLabel ()
     return filename
 endfunction
 set guitablabel=%{ShortTabLabel()}
-
-"key mapping for tab navigation
-nmap <S-Tab> gt
-nmap <C-S-Tab> gT
 
 " when press { + Enter, the {} block will expand.
 imap {<CR> {}<ESC>i<CR><ESC>O
