@@ -8,16 +8,19 @@ if !isdirectory($CACHEDIR) && exists("*mkdir")
     call mkdir($CACHEDIR)
 endif
 
-"necessary on some Linux distros for pathogen to properly load bundles
-filetype on
+filetype on " without this vim emits a zero exit status, later, because of :ft off
 filetype off
 
 "load pathogen managed plugins
 call pathogen#infect()
+filetype plugin indent on
 
 "Use Vim settings, rather then Vi settings (much better!).
 "This must be first, because it changes other options as a side effect.
 set nocompatible
+
+"turn on syntax highlighting
+syntax on
 
 " 文件编码设置
 set encoding=utf-8
@@ -196,13 +199,6 @@ set formatoptions-=o "dont continue comments when pushing o/O
 set scrolloff=3
 set sidescrolloff=7
 set sidescroll=1
-
-"load ftplugins and indent files
-filetype plugin on
-filetype indent on
-
-"turn on syntax highlighting
-syntax on
 
 "some stuff to get the mouse going in term
 set mouse=a
@@ -444,6 +440,7 @@ nmap <leader>q :q!<CR> "fast saving
 nmap <silent> on :only<CR> "取消分屏
 map <C-H> ,c<space>
 :abbr epe echo '<pre>';print_r();exit;<ESC>F(
+nnoremap <silent> <Leader>t :tabnew<CR>
 
 
 noremap <C-W><C-U> :CtrlPMRU<CR>
