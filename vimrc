@@ -442,7 +442,6 @@ map <C-H> ,c<space>
 :abbr epe echo '<pre>';print_r();exit;<ESC>F(
 nnoremap <silent> <Leader>t :tabnew<CR>
 
-
 noremap <C-W><C-U> :CtrlPMRU<CR>
 nnoremap <C-W>u :CtrlPMRU<CR>
 nnoremap <silent> <Leader>f :tabnew<CR>:CtrlP<CR>
