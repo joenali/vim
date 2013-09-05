@@ -21,7 +21,6 @@ set nocompatible
 
 "turn on syntax highlighting
 syntax on
-
 " 文件编码设置
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
@@ -32,12 +31,9 @@ set ffs=unix,dos,mac
 
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-
 set autochdir  " 自动切换当前目录为当前文件所在的目录
-
 "store lots of :cmdline history
 set history=700
-
 set showcmd     "show incomplete cmds down the bottom
 set showmode    "show current mode down the bottom
 
@@ -50,48 +46,37 @@ set wrap linebreak nolist
 
 "add some line space for easy reading
 set linespace=4
-
 "statusline setup
 set statusline=%f       "tail of the filename
-
 set statusline+=%=      "left/right separator
 set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 set laststatus=2
-
 set dir=$CACHEDIR// " 设置交换文件(*.swp)路径
 setlocal noswapfile " don't generation swap file
-
 "indent settings
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 set autoindent
-
 "folding settings
 set foldmethod=indent   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
-
 set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
-
 set whichwrap+=<,>,[,]
-
 "display tabs and trailing spaces
 "set listchars=tab:\ \ ,extends:>,precedes:<
 set listchars=eol:¶,tab:>-,trail:·,extends:»,precedes:« " 182, , 187, 171
-
 set formatoptions-=o "dont continue comments when pushing o/O
-
 "vertical/horizontal scroll off settings
 set scrolloff=3
 set sidescrolloff=7
 set sidescroll=1
-
 "some stuff to get the mouse going in term
 set mouse=a
 set ttymouse=xterm2
@@ -109,7 +94,6 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
-
 set cursorline
 
 if has("gui_running")
@@ -132,7 +116,7 @@ if has("gui_running")
 
     if has("gui_gnome")
         set term=gnome-256color
-        set guifont=Monospace\ Bold\ 14
+        set guifont=Monospace\ Bold\ 16
     endif
 
     if has("gui_mac") || has("gui_macvim")
@@ -149,9 +133,7 @@ if has("gui_running")
         source $VIMRUNTIME/vimrc_example.vim
         source $VIMRUNTIME/mswin.vim
         behave mswin
-
         let g:snippets_dir='$VIM/vimfiles/snippets'
-
         au GUIENTER * simalt ~x "窗口自动最大化(仅windows下有效)
     endif
 
@@ -171,13 +153,12 @@ if has("gui_running")
             \set guioptions+=T <Bar>
             \set guioptions+=m <Bar>
         \endif<CR>
-
 else
     "dont load csapprox if there is no gui support - silences an annoying warning
     let g:CSApprox_loaded = 1
-
     "set railscasts colorscheme when running vim in gnome terminal
     if $COLORTERM == 'gnome-terminal'
+        set t_Co=256
         colorscheme molokai
     else
         if $TERM == 'xterm'
@@ -233,7 +214,6 @@ let g:DoxygenToolkit_briefTag_funcName="yes"
 let g:doxygen_enhanced_color=1
 " ------------------------doxygenToolkit设置End---------------------------
 
-
 " ------------------------ctrlP设置Begin---------------------------
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
 let g:ctrlp_working_path_mode = 'ra'
@@ -244,23 +224,6 @@ let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
 let g:ctrlp_root_markers = ['.ctrlp']
 " ------------------------ctrlP设置End---------------------------
-
-if has("gui_win32")
-    " open cmd/explorer
-    command! Cmd :!start cmd
-    command! -nargs=? OpenDir call Win32_openDir(<f-args>)
-    function! Win32_openDir(...)
-        if exists("a:1")
-            let s:cmd = ":!start explorer " . a:1
-            execute s:cmd
-        else
-            let s:cmd = ":!start explorer " . getcwd()
-            execute s:cmd
-        endif
-    endfunction
-    nmap <leader>dir :OpenDir<CR>
-    nmap <leader>cmd :Cmd<CR>
-endif
 
 " 在命令模式或者插入模式下，使用Ctrl+t能够新建标签
 map <C-T> :tabnew<CR>
@@ -283,3 +246,20 @@ nnoremap <silent> <Leader>f :tabnew<CR>:CtrlP<CR>
 nnoremap <silent> <Leader>F :CtrlP<CR>
 "Flush then CtrlP
 nnoremap <silent> <leader>T :ClearCtrlPCache<cr>\|:CtrlP<cr>
+
+if has("gui_win32")
+    " open cmd/explorer
+    command! Cmd :!start cmd
+    command! -nargs=? OpenDir call Win32_openDir(<f-args>)
+    function! Win32_openDir(...)
+        if exists("a:1")
+            let s:cmd = ":!start explorer " . a:1
+            execute s:cmd
+        else
+            let s:cmd = ":!start explorer " . getcwd()
+            execute s:cmd
+        endif
+    endfunction
+    nmap <leader>dir :OpenDir<CR>
+    nmap <leader>cmd :Cmd<CR>
+endif
