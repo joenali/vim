@@ -117,14 +117,10 @@ if has("gui_running")
     if has("gui_gnome")
         set term=gnome-256color
         set guifont=Monospace\ Bold\ 16
-    endif
-
-    if has("gui_mac") || has("gui_macvim")
+    elseif has("gui_mac") || has("gui_macvim")
         set guifont=Menlo:h12
         set transparency=7
-    endif
-
-    if has("gui_win32") || has("gui_win32s")
+    elseif has("gui_win32") || has("gui_win32s")
         "set guifont=Consolas:h12
         set guifont=Courier_New:h14:cANSI
         set enc=utf-8
