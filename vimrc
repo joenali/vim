@@ -109,14 +109,13 @@ if has("gui_running")
     set guioptions-=L
     set guioptions-=r
 
-    set background=dark
-    colorscheme solarized
     set lines=40
     set columns=115
 
-    if has("gui_gnome")
-        set term=gnome-256color
-        set guifont=Monospace\ Bold\ 16
+    set background=dark
+    colorscheme solarized
+    if has("gui_gtk2")
+        set guifont=Luxi\ Mono\ 13
     elseif has("gui_mac") || has("gui_macvim")
         set guifont=Menlo:h12
         set transparency=7
