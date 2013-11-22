@@ -87,7 +87,7 @@ set hidden
 "Activate smartcase
 set ic
 set smartcase
-set iskeyword+=_,$,@,%,#,-
+set iskeyword+=_,@,%,#
 
 " No annoying sound on errors
 set noerrorbells
@@ -126,7 +126,6 @@ if has("gui_running")
 
         "实现windows下的快捷键方式
         source $VIMRUNTIME/vimrc_example.vim
-        source $VIMRUNTIME/mswin.vim
         behave mswin
         let g:snippets_dir='$VIM/vimfiles/snippets'
         au GUIENTER * simalt ~x "窗口自动最大化(仅windows下有效)
@@ -166,6 +165,7 @@ else
     hi CursorLine cterm=NONE ctermbg=0
 endif
 set nobackup "cancel backup file
+source $VIMRUNTIME/mswin.vim
 silent! nmap <silent> wm :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.swp$']
 
@@ -186,7 +186,9 @@ endfunction
 set guitablabel=%{ShortTabLabel()}
 
 " ------------------------taglist设置Begin---------------------------
-nmap <F9> <Esc>:!ctags -R *<CR>
+"nmap <F9> <Esc>:!ctags -R *<CR>
+nmap <F9> <Esc>:!ctags --langmap=php:.engine.inc.module.theme.php  --php-kinds=cdf  --languages=php -R *<CR>
+
 map <F8> :silent! Tlist<CR> "按下F8就可以呼出了
 let Tlist_Ctags_Cmd='ctags' "因为我们放在环境变量里，所以可以直接执行
 let Tlist_Use_Right_Window=1 "让窗口显示在右边，0的话就是显示在左边
@@ -223,6 +225,8 @@ let g:ctrlp_root_markers = ['.ctrlp']
 " 在命令模式或者插入模式下，使用Ctrl+t能够新建标签
 map <C-T> :tabnew<CR>
 imap <C-T> <ESC>:tabnew<CR>i
+map <C-W> :tabclose<CR>
+imap <C-W> <ESC>:tabclose<CR>
 
 map <C-K> :tabnew %<CR>
 imap <C-K> <ESC>:tabnew %<CR>i
@@ -232,7 +236,6 @@ nmap <leader>q :q!<CR> "fast saving
 
 nmap <silent> on :only<CR> "取消分屏
 map <C-H> ,c<space>
-:abbr epe echo '<pre>';print_r();exit;<ESC>F(
 nnoremap <silent> <Leader>t :tabnew<CR>
 
 noremap <C-W><C-U> :CtrlPMRU<CR>
@@ -241,20 +244,5 @@ nnoremap <silent> <Leader>f :tabnew<CR>:CtrlP<CR>
 nnoremap <silent> <Leader>F :CtrlP<CR>
 "Flush then CtrlP
 nnoremap <silent> <leader>T :ClearCtrlPCache<cr>\|:CtrlP<cr>
-
-if has("gui_win32")
-    " open cmd/explorer
-    command! Cmd :!start cmd
-    command! -nargs=? OpenDir call Win32_openDir(<f-args>)
-    function! Win32_openDir(...)
-        if exists("a:1")
-            let s:cmd = ":!start explorer " . a:1
-            execute s:cmd
-        else
-            let s:cmd = ":!start explorer " . getcwd()
-            execute s:cmd
-        endif
-    endfunction
-    nmap <leader>dir :OpenDir<CR>
-    nmap <leader>cmd :Cmd<CR>
-endif
+:abbr epe echo '<pre>';print_r();exit;<ESC>F(
+map <silent> <leader>root :call writefile([], '.ctrlp')<cr>
