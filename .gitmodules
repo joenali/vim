@@ -43,3 +43,6 @@
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = git://github.com/ervandew/supertab.git
+[submodule "bundle/tabline.vim"]
+	path = bundle/tabline.vim
+	url = git://github.com/mkitt/tabline.vim.git
