@@ -153,7 +153,9 @@ else
     "set railscasts colorscheme when running vim in gnome terminal
     if $COLORTERM == 'gnome-terminal'
         set t_Co=256
-        colorscheme molokai
+        set background=dark
+        colorscheme solarized
+        "colorscheme molokai
     else
         if $TERM == 'xterm'
             set term=xterm-256color
@@ -225,8 +227,6 @@ let g:ctrlp_root_markers = ['.ctrlp']
 " 在命令模式或者插入模式下，使用Ctrl+t能够新建标签
 map <C-T> :tabnew<CR>
 imap <C-T> <ESC>:tabnew<CR>i
-map <C-W> :tabclose<CR>
-imap <C-W> <ESC>:tabclose<CR>
 
 map <C-K> :tabnew %<CR>
 imap <C-K> <ESC>:tabnew %<CR>i
