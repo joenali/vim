@@ -175,9 +175,6 @@ let NERDTreeIgnore=['\.swp$']
 nmap <ESC><ESC> :nohl<CR>
 imap <ESC><ESC> <ESC>:nohl<CR>
 
-"map to bufexplorer
-nnoremap <leader>b :BufExplorer<cr>
-
 " 标签页只显示文件名,隐藏路径
 function! ShortTabLabel ()
     let bufnrlist = tabpagebuflist (v:lnum)

@@ -22,9 +22,6 @@
 [submodule "vimfiles/bundle/grep-vim"]
 	path = vimfiles/bundle/grep-vim
 	url = git://github.com/vim-scripts/grep.vim.git
-[submodule "vimfiles/bundle/vim-buffergator"]
-	path = vimfiles/bundle/vim-buffergator
-	url = git://github.com/jeetsukumaran/vim-buffergator.git
 [submodule "vimfiles/bundle/doxygentoolkit"]
 	path = vimfiles/bundle/doxygentoolkit
 	url = git://github.com/vim-scripts/DoxygenToolkit.vim.git
