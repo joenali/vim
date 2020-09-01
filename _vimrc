@@ -129,6 +129,10 @@ if has("gui_running")
         behave mswin
         let g:snippets_dir='$VIM/vimfiles/snippets'
         au GUIENTER * simalt ~x "窗口自动最大化(仅windows下有效)
+
+
+        let $hostfile = "C:/Windows/System32/drivers/etc/hosts"
+
     endif
 
     " 解决菜单乱码
@@ -166,7 +170,9 @@ else
     endif
     hi CursorLine cterm=NONE ctermbg=0
 endif
-set nobackup "cancel backup file
+set noundofile
+set nobackup
+set noswapfile
 source $VIMRUNTIME/mswin.vim
 silent! nmap <silent> wm :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.swp$']
