@@ -132,6 +132,7 @@ if has("gui_running")
 
 
         let $hostfile = "C:/Windows/System32/drivers/etc/hosts"
+        let $gitconfig = "~/.gitconfig"
 
     endif
 
